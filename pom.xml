@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.5.1</version>
+    </parent>
+
+    <groupId>com.jaiz</groupId>
+    <artifactId>jz-dep</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+
+    <name>jz-dep</name>
+    <packaging>pom</packaging>
+
+    <description>公共父pom</description>
+
+    <developers>
+        <developer>
+            <name>姜志恒</name>
+            <email>zhiheng.jiang@foxmail.com</email>
+        </developer>
+    </developers>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+
+        <hutool.version>5.6.6</hutool.version>
+    </properties>
+
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+        </dependency>
+    </dependencies>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+
+        <plugins>
+            <plugin>
+                <artifactId>maven-source-plugin</artifactId>
+            </plugin>
+        </plugins>
+
+        <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+            <plugins>
+                <!-- clean lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#clean_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-clean-plugin</artifactId>
+                </plugin>
+                <!-- default lifecycle, jar packaging: see https://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+                <plugin>
+                    <artifactId>maven-resources-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-surefire-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-jar-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-install-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-deploy-plugin</artifactId>
+                </plugin>
+                <!-- site lifecycle, see https://maven.apache.org/ref/current/maven-core/lifecycles.html#site_Lifecycle -->
+                <plugin>
+                    <artifactId>maven-site-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <artifactId>maven-project-info-reports-plugin</artifactId>
+                </plugin>
+                <!--上传源代码至仓库-->
+                <plugin>
+                    <artifactId>maven-source-plugin</artifactId>
+                    <executions>
+                        <execution>
+                            <id>attach-sources</id>
+                            <goals>
+                                <goal>jar</goal>
+                            </goals>
+                        </execution>
+                    </executions>
+                </plugin>
+                <!--打一个带依赖项的完整的包-->
+                <plugin>
+                    <artifactId>maven-assembly-plugin</artifactId>
+                    <configuration>
+                        <descriptorRefs>
+                            <descriptorRef>jar-with-dependencies</descriptorRef>
+                        </descriptorRefs>
+                        <!--            <archive>-->
+                        <!--              <manifest>-->
+                        <!--                <mainClass>path/to/your/main/class</mainClass>-->
+                        <!--              </manifest>-->
+                        <!--            </archive>-->
+                    </configuration>
+                    <!--          <executions>-->
+                    <!--            <execution>-->
+                    <!--              <phase>package</phase>-->
+                    <!--              <goals>-->
+                    <!--                <goal>single</goal>-->
+                    <!--              </goals>-->
+                    <!--            </execution>-->
+                    <!--          </executions>-->
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+</project>
