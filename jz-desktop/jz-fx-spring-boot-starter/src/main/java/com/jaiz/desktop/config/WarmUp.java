@@ -1,9 +1,9 @@
 package com.jaiz.desktop.config;
 
-import com.jaiz.desktop.ex.DesktopException;
+import com.jaiz.desktop.componet.AppConfigManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
@@ -11,13 +11,14 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 
 @Component
-public class LoaderHolder implements ApplicationRunner {
+@RequiredArgsConstructor
+public class WarmUp implements ApplicationRunner {
 
-    @Autowired
-    private FXMLLoader loader;
+    private final FXMLLoader loader;
 
-    @Autowired
-    private MainSceneProvider mainSceneProvider;
+    private final MainSceneProvider mainSceneProvider;
+
+    private final AppConfigManager appConfigManager;
 
     /**
      * FX应用启动

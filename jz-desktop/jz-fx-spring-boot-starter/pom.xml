@@ -21,7 +21,11 @@
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>com.jaiz.common</groupId>
+            <artifactId>jz-util</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
