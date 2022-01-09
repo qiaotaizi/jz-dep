@@ -1,6 +1,5 @@
 package com.jaiz.desktop.config;
 
-import com.jaiz.desktop.componet.AppConfigManager;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import lombok.RequiredArgsConstructor;
@@ -17,8 +16,6 @@ public class WarmUp implements ApplicationRunner {
     private final FXMLLoader loader;
 
     private final MainSceneProvider mainSceneProvider;
-
-    private final AppConfigManager appConfigManager;
 
     /**
      * FX应用启动
