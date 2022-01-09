@@ -6,10 +6,13 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.stereotype.Component;
 
+/**
+ * 改变FXML ControllerFactory
+ * 改为从容器里获取
+ */
 @Configuration
-public class AppContAware implements ApplicationContextAware {
+public class DefineFxmlControllerFactory implements ApplicationContextAware {
 
     private ApplicationContext ac;
 
@@ -24,7 +27,6 @@ public class AppContAware implements ApplicationContextAware {
 
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        System.out.println("setApplicationContext");
         ac=applicationContext;
     }
 }
